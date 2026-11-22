@@ -8,8 +8,13 @@ function addSquare(){
     square.style.backgroundColor=getRandomColor();
     square.style.top = parseInt(Math.random()*(300-50))+"px";
     square.style.left = parseInt(Math.random()*(700-50))+"px";
+    square.onclick=//some function for z-index
     squarearea.append(square);
 }
+
+//Make a function that will change the z-index value to bring it to the top of other squares
+
+//Make a function to randomize the size of the squares you can use 45-55px or pick own
 
 for (let i = 0; i < squareCount; i++) {
     addSquare();
