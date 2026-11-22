@@ -9,7 +9,7 @@ function addSquare(){
     square.style.backgroundColor=getRandomColor();
     square.style.top = parseInt(Math.random()*(300-50))+"px";
     square.style.left = parseInt(Math.random()*(700-50))+"px";
-    //square.onclick=//some function for z-index
+    square.onclick = squareClick;//Added for z-index change on square click
     squarearea.append(square);
 }
 
@@ -24,6 +24,27 @@ function changeColors(){
 }
 
 //Make a function that will change the z-index value to bring it to the top of other squares
+//Second click should delete it from window
+function squareClick(){
+    let squares = document.querySelectorAll(".square");
+    let zvalue = 0;
+
+    for(let i = 0; i < squares.length; i++){
+        let z = parseInt(squares[i].style.zIndex);//If never click it starts as NaN, empty string
+        if(z > zvalue){
+            zvalue = z;
+        }
+    }
+
+    //The && is important to the second click deletion.
+    //If zvalue>0 and highest zvalue then it will remove() it!
+    if(parseInt(this.style.zIndex) == zvalue && zvalue > 0){
+        this.remove();//remove() is a built-in JS DOM method. Dont forget "this" to make work
+    }
+    else{
+        this.style.zIndex = zvalue + 1;//this is the neeed part for second click value tracker
+    }
+}
 
 //Make a function to randomize the size of the squares you can use 45-55px or pick own
 
