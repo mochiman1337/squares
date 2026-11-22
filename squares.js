@@ -15,6 +15,7 @@ function addSquare(){
 
 //Change Color function
 //Used squares instead since we are changing multiple squares colors at once. Also confusing naming
+//If i use let = square, it also works. This is just for readability
 function changeColors(){
     let squares = document.querySelectorAll(".square");
     for(let i = 0; i < squares.length; i++){
