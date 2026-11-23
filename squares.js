@@ -7,8 +7,17 @@ function addSquare(){
     let square = document.createElement("div");
     square.className = "square";
     square.style.backgroundColor=getRandomColor();
-    square.style.top = parseInt(Math.random()*(300-50))+"px";
-    square.style.left = parseInt(Math.random()*(700-50))+"px";
+
+    //Random sizes between 45 to 100px my choice!
+    //100px makes more interesting variety of shapes
+    let size = parseInt(Math.random()*56)+45;//Formula: Range = Max - Min +1
+    square.style.width = size+"px";
+    square.style.height = size+"px";
+
+    //Also modified this for the random size feature
+    square.style.top = parseInt(Math.random()*(300-size-4))+"px";// we are subtracting 4 and size because 2px border
+    square.style.left = parseInt(Math.random()*(700-size-4))+"px";//total border is 4px to W x H
+
     square.onclick = squareClick;//Added for z-index change on square click
     squarearea.append(square);
 }
